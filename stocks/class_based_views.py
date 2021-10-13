@@ -1,5 +1,5 @@
-from stock.models import *
-from stock.serializers import *
+from stocks.models import *
+from stocks.serializers import *
 from rest_framework import mixins
 from rest_framework import generics
 

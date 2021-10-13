@@ -42,18 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stocks',
-<<<<<<< HEAD
     'rest_framework',
-    'drf_yasg'
-=======
     'users',
-    'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'drf_yasg',
     'core',
-    
-    
->>>>>>> authentication purposes for user credentials and forget password
 ]
 
 MIDDLEWARE = [

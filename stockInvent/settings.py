@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+
+
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
@@ -18,7 +20,9 @@ from pathlib import Path
 from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,6 +34,8 @@ SECRET_KEY = 'django-insecure-uq04er)j@2_g)y^=z3-7y6mp&frk)ceyomio%9v6*0)84hfpxn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 AUTH_USER_MODEL = 'users.User'
+AUTH_STOCKS_MODEL = 'stocks.user'
+
 
 ALLOWED_HOSTS = []
 # Application definition

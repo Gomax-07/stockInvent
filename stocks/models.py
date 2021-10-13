@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.db import models 
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -149,3 +150,5 @@ class Delivery(models.Model):
         value = self.name
         self.slug = slugify(value,)
         super().save(*args, **kwargs)
+=======
+>>>>>>> 107d985cca106fa6b3df5229e87b94b77807a528

@@ -15,6 +15,7 @@ import django_heroku
 import dj_database_url
 from decouple import config,Csv
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,10 +29,9 @@ SECRET_KEY = 'django-insecure-uq04er)j@2_g)y^=z3-7y6mp&frk)ceyomio%9v6*0)84hfpxn
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+AUTH_USER_MODEL = 'users.User'
 
 ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,8 +42,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stocks',
+<<<<<<< HEAD
     'rest_framework',
     'drf_yasg'
+=======
+    'users',
+    'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
+    'drf_yasg',
+    'core',
+    
+    
+>>>>>>> 107d985cca106fa6b3df5229e87b94b77807a528
 ]
 
 MIDDLEWARE = [
@@ -78,6 +88,58 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'stockInvent.wsgi.application'
+# REST_FRAMEWORK = {
+#     'NON_FIELD_ERRORS_KEY': 'error',
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ),
+# }
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ],
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated'
+#     ],
+# 'DEFAULT_RENDERER_CLASSES' = {
+#         'rest_framework.renderers.JSONRenderer',
+#         'rest_framework.renderers.BrowsableAPIRenderer',
+# }
+# }
+# REST_FRAMEWORK = {
+#     'NON_FIELD_ERRORS_KEY': 'error',
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ),
+# }
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+
+    )
+
+}
+
+
+
+
+
+SIMPLE_JWT = {
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=800),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=2),
+}
+# OAUTH2_PROVIDER = {
+#         'ACCESS_TOKEN_EXPIRE_SECONDS': 60 * 15,
+#         'OAUTH_SINGLE_ACCESS_TOKEN': True,
+#         'OAUTH_DELETE_EXPIRED': True
+#  }
 
 
 MODE=config("MODE", default="dev")

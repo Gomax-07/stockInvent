@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """inventory URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -37,3 +38,5 @@ urlpatterns = [
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
+=======
+>>>>>>> 107d985cca106fa6b3df5229e87b94b77807a528

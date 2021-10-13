@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stocks',
+<<<<<<< HEAD
+    'rest_framework',
+    'drf_yasg'
+=======
     'users',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
@@ -49,6 +53,7 @@ INSTALLED_APPS = [
     'core',
     
     
+>>>>>>> 107d985cca106fa6b3df5229e87b94b77807a528
 ]
 
 MIDDLEWARE = [

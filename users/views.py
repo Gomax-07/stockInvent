@@ -53,6 +53,7 @@ class LoginAPIView(TokenObtainPairView):
     permission_classes = [AllowAny]
     serializer_class = CustomTokenObtainPairSerializer
 class RequestPasswordResetEmail(generics.GenericAPIView):
+    permission_classes= (AllowAny,)
     serializer_class = ResetPasswordEmailRequest
     def post(self, request):
         serializer = self.serializer_class(data=request.data)

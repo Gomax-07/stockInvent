@@ -39,4 +39,4 @@ urlpatterns=[
   path('delivery/<int:pk>/', DeliveryDetail.as_view(), name='delivery_detail'),
   path('delivery/', DeliveryListView.as_view(), name='delivery_list'),
 
-]
+  ]

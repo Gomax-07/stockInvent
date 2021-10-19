@@ -148,4 +148,6 @@ class Delivery(models.Model):
     def save(self, *args, **kwargs):
         value = self.name
         self.slug = slugify(value,)
+        
         super().save(*args, **kwargs)
+

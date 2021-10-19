@@ -6,7 +6,7 @@ from .models import *
 class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'user',
+        'user_id',
         'name',
         'address',
         'created_date',
@@ -18,7 +18,7 @@ class SupplierSerializer(serializers.ModelSerializer):
 class BuyerSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'user',
+        'user_id',
         'name',
         'address',
         'created_date',
@@ -30,7 +30,7 @@ class BuyerSerializer(serializers.ModelSerializer):
 class SeasonSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'name',
+        'name_id',
         'description',
         'created_date',
         'slug',
@@ -67,7 +67,7 @@ class OrderSerializer(serializers.ModelSerializer):
         'color',
         'buyer',
         'season',
-        'drop',
+        'drop_id',
         'status',
         'created_date',
         'slug', 
@@ -77,7 +77,7 @@ class OrderSerializer(serializers.ModelSerializer):
 class DeliverySerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'order',
+        'order_id',
         'courier_name',
         'created_date',
         'slug',

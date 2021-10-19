@@ -1,4 +1,6 @@
 from django.contrib.auth.models import UserManager
+# from django.conf import settings
+
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import generics, status
@@ -12,6 +14,8 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from .email import Util
+
+
 # Create your views here.
 class RegistrationAPIView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -49,6 +53,7 @@ class LoginAPIView(TokenObtainPairView):
     permission_classes = [AllowAny]
     serializer_class = CustomTokenObtainPairSerializer
 class RequestPasswordResetEmail(generics.GenericAPIView):
+    permission_classes= (AllowAny,)
     serializer_class = ResetPasswordEmailRequest
     def post(self, request):
         serializer = self.serializer_class(data=request.data)

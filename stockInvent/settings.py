@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+
+
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
@@ -18,7 +20,9 @@ from pathlib import Path
 from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,6 +34,8 @@ SECRET_KEY = 'django-insecure-uq04er)j@2_g)y^=z3-7y6mp&frk)ceyomio%9v6*0)84hfpxn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 AUTH_USER_MODEL = 'users.User'
+AUTH_STOCKS_MODEL = 'stocks.user'
+
 
 ALLOWED_HOSTS = []
 # Application definition
@@ -42,18 +48,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stocks',
-<<<<<<< HEAD
     'rest_framework',
-    'drf_yasg'
-=======
     'users',
-    'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'drf_yasg',
     'core',
-    
-    
->>>>>>> 107d985cca106fa6b3df5229e87b94b77807a528
+    'password_reset'
 ]
 
 MIDDLEWARE = [
@@ -87,6 +87,16 @@ TEMPLATES = [
     },
 ]
 
+SWAGGER_SETTINGS={
+    'SECURITY_DEFINITIONS':{
+        'Bearer':{
+            'type':'apiKey',
+            'name':'Authorization',
+            'in':'header'
+        }
+    }
+}
+
 WSGI_APPLICATION = 'stockInvent.wsgi.application'
 # REST_FRAMEWORK = {
 #     'NON_FIELD_ERRORS_KEY': 'error',
@@ -113,9 +123,7 @@ WSGI_APPLICATION = 'stockInvent.wsgi.application'
 #     ),
 # }
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    
     'DEFAULT_AUTHENTICATION_CLASSES': (
         
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -233,6 +241,12 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

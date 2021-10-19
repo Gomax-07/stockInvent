@@ -1,4 +1,4 @@
-from django_rest_passwordreset.signals import reset_password_token_created
+# from django_rest_passwordreset.signals import reset_password_token_created
 from rest_framework import generics, permissions
 from.models import *
 from.serializers import *

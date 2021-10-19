@@ -16,7 +16,7 @@ class SupplierSerializer(serializers.ModelSerializer):
 class BuyerSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'user_id',
+        'id',
         'name',
         'address',
         'created_date',
@@ -28,7 +28,7 @@ class BuyerSerializer(serializers.ModelSerializer):
 class SeasonSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'name_id',
+        'id',
         'description',
         'created_date',
         'slug',
@@ -39,6 +39,7 @@ class SeasonSerializer(serializers.ModelSerializer):
 class DropSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
+        'id',
         'name',
         'created_date',
       )
@@ -59,6 +60,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
+         'id',
         'supplier',
         'product',
         'design',
@@ -75,7 +77,8 @@ class OrderSerializer(serializers.ModelSerializer):
 class DeliverySerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'order_id',
+         'id',
+        'order',
         'courier_name',
         'created_date',
         'slug',

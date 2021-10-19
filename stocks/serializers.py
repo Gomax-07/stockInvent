@@ -4,7 +4,7 @@ from .models import *
 class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'user_id',
+        'id',
         'name',
         'address',
         'created_date',

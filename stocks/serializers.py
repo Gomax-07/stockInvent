@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-=======
 from rest_framework import serializers
 from .models import *
 
 class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'user',
+        'user_id',
         'name',
         'address',
         'created_date',
@@ -18,7 +16,7 @@ class SupplierSerializer(serializers.ModelSerializer):
 class BuyerSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'user',
+        'id',
         'name',
         'address',
         'created_date',
@@ -30,7 +28,7 @@ class BuyerSerializer(serializers.ModelSerializer):
 class SeasonSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
-        'name',
+        'id',
         'description',
         'created_date',
         'slug',
@@ -41,6 +39,7 @@ class SeasonSerializer(serializers.ModelSerializer):
 class DropSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
+        'id',
         'name',
         'created_date',
       )
@@ -61,6 +60,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
+         'id',
         'supplier',
         'product',
         'design',
@@ -77,10 +77,10 @@ class OrderSerializer(serializers.ModelSerializer):
 class DeliverySerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
+         'id',
         'order',
         'courier_name',
         'created_date',
         'slug',
       )
       model = Delivery
->>>>>>> 681721466851133f9e25980cb067827deffbb8a8

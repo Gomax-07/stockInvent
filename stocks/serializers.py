@@ -5,7 +5,7 @@ class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
         'id',
-        'user',
+        'user_id',
         'name',
         'address',
         'created_date',
@@ -18,6 +18,7 @@ class BuyerSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
         'id',
+        'user_id',
         'name',
         'address',
         'created_date',

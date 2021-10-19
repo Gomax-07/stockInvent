@@ -7,7 +7,7 @@ from django.urls import reverse
 
 
 class Supplier(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120, unique=True)
     address = models.CharField(max_length=220)
@@ -29,7 +29,7 @@ class Supplier(models.Model):
 
 
 class Buyer(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120, unique=True)
     address = models.CharField(max_length=220)

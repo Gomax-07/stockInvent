@@ -5,6 +5,7 @@ class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
         'id',
+        'user',
         'name',
         'address',
         'created_date',

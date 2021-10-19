@@ -108,6 +108,9 @@ class Order(models.Model):
         ('complete', 'Complete'),
         ('bulk', 'Bulk'),
     )
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=120, unique=True)
+
     supplier = models.CharField(max_length=50)
     product = models.CharField(max_length=50)
     design = models.CharField(max_length=50)

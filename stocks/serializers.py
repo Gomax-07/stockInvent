@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 from rest_framework import serializers
 from .models import *
 
@@ -83,4 +81,3 @@ class DeliverySerializer(serializers.ModelSerializer):
         'slug',
       )
       model = Delivery
->>>>>>> 681721466851133f9e25980cb067827deffbb8a8

@@ -108,13 +108,13 @@ class Order(models.Model):
         ('complete', 'Complete'),
         ('bulk', 'Bulk'),
     )
-    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    supplier = models.CharField(max_length=50)
+    product = models.CharField(max_length=50)
     design = models.CharField(max_length=50)
     color = models.CharField(max_length=50)
-    buyer = models.ForeignKey(Buyer, on_delete=models.CASCADE, null=True)
-    season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True)
-    drop = models.ForeignKey(Drop, on_delete=models.CASCADE, null=True)
+    buyer = models.CharField(max_length=50)
+    season =models.CharField(max_length=50)
+    drop =models.CharField(max_length=50)
     status = models.CharField(max_length=10, choices=STATUS_CHOICE)
     created_date = models.DateField(auto_now_add=True)
     slug = models.SlugField(max_length=250,null=False, unique=True)
@@ -135,7 +135,7 @@ class Order(models.Model):
 
 class Delivery(models.Model):
     id = models.IntegerField(primary_key=True)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order =models.CharField(max_length=50)
     courier_name = models.CharField(max_length=120)
     created_date = models.DateField(auto_now_add=True)
     slug = models.SlugField(max_length=250,null=False, unique=True)

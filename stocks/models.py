@@ -1,14 +1,14 @@
 from django.db import models 
 from django.utils import timezone
-from django.contrib.auth.models import User
-from users.models import User
+# from django.contrib.auth.models import User
+# from users.models import User
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 
 
 class Supplier(models.Model):
     id = models.IntegerField(primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=120, unique=True)
     address = models.CharField(max_length=220)
     created_date = models.DateField(auto_now_add=True)
@@ -30,7 +30,7 @@ class Supplier(models.Model):
 
 class Buyer(models.Model):
     id = models.IntegerField(primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=120, unique=True)
     address = models.CharField(max_length=220)
     created_date = models.DateField(auto_now_add=True)

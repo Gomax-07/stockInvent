@@ -8,7 +8,7 @@ from django.urls import reverse
 
 class Supplier(models.Model):
     id = models.IntegerField(primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120, unique=True)
     address = models.CharField(max_length=220)
     created_date = models.DateField(auto_now_add=True)
@@ -30,7 +30,7 @@ class Supplier(models.Model):
 
 class Buyer(models.Model):
     id = models.IntegerField(primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120, unique=True)
     address = models.CharField(max_length=220)
     created_date = models.DateField(auto_now_add=True)
@@ -134,6 +134,7 @@ class Order(models.Model):
 
 
 class Delivery(models.Model):
+    id = models.IntegerField(primary_key=True)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     courier_name = models.CharField(max_length=120)
     created_date = models.DateField(auto_now_add=True)

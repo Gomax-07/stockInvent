@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 from django.urls import path
 from.views import *
 from stocks import function_views
@@ -42,4 +40,3 @@ urlpatterns=[
   path('delivery/', DeliveryListView.as_view(), name='delivery_list'),
 
   ]
->>>>>>> 681721466851133f9e25980cb067827deffbb8a8

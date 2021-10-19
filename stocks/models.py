@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 from django.db import models 
 from django.utils import timezone
 from django.contrib.auth.models import User
-# from users.models import User
+from users.models import User
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 
@@ -151,7 +148,6 @@ class Delivery(models.Model):
     def save(self, *args, **kwargs):
         value = self.name
         self.slug = slugify(value,)
+        
         super().save(*args, **kwargs)
-=======
->>>>>>> 107d985cca106fa6b3df5229e87b94b77807a528
->>>>>>> 681721466851133f9e25980cb067827deffbb8a8
+

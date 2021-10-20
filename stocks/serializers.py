@@ -49,6 +49,7 @@ class DropSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
       fields = (
+        'id',
         'name',
         'slug',
         'sortno',

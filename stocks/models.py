@@ -80,6 +80,7 @@ class Drop(models.Model):
 
 
 class Product(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=120, unique=True)
     slug = models.SlugField(max_length=250,null=False, unique=True) 
     sortno = models.PositiveIntegerField()
@@ -109,8 +110,7 @@ class Order(models.Model):
         ('bulk', 'Bulk'),
     )
     id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=120, unique=True)
-
+    name = models.CharField(max_length=120, unique=False)
     supplier = models.CharField(max_length=50)
     product = models.CharField(max_length=50)
     design = models.CharField(max_length=50)

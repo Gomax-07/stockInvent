@@ -68,7 +68,7 @@ class OrderSerializer(serializers.ModelSerializer):
         'color',
         'buyer',
         'season',
-        'drop_id',
+        'drop',
         'status',
         'created_date',
         'slug', 
